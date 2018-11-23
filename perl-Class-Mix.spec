@@ -4,7 +4,7 @@
 #
 Name     : perl-Class-Mix
 Version  : 0.006
-Release  : 3
+Release  : 4
 URL      : https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Class-Mix-0.006.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Class-Mix-0.006.tar.gz
 Summary  : 'dynamic class mixing'
@@ -59,7 +59,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.26.1/Class/Mix.pm
+/usr/lib/perl5/vendor_perl/5.28.0/Class/Mix.pm
 
 %files dev
 %defattr(-,root,root,-)
