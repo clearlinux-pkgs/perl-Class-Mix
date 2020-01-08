@@ -4,12 +4,13 @@
 #
 Name     : perl-Class-Mix
 Version  : 0.006
-Release  : 14
+Release  : 15
 URL      : https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Class-Mix-0.006.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Class-Mix-0.006.tar.gz
 Summary  : 'dynamic class mixing'
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
+Requires: perl-Class-Mix-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Params::Classify)
 
@@ -24,19 +25,30 @@ The "mix_class" function provided by this module dynamically generates
 Summary: dev components for the perl-Class-Mix package.
 Group: Development
 Provides: perl-Class-Mix-devel = %{version}-%{release}
+Requires: perl-Class-Mix = %{version}-%{release}
 
 %description dev
 dev components for the perl-Class-Mix package.
 
 
+%package perl
+Summary: perl components for the perl-Class-Mix package.
+Group: Default
+Requires: perl-Class-Mix = %{version}-%{release}
+
+%description perl
+perl components for the perl-Class-Mix package.
+
+
 %prep
 %setup -q -n Class-Mix-0.006
+cd %{_builddir}/Class-Mix-0.006
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -59,8 +71,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Class/Mix.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Class::Mix.3
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Class/Mix.pm
