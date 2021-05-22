@@ -4,7 +4,7 @@
 #
 Name     : perl-Class-Mix
 Version  : 0.006
-Release  : 19
+Release  : 20
 URL      : https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Class-Mix-0.006.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Class-Mix-0.006.tar.gz
 Summary  : 'dynamic class mixing'
